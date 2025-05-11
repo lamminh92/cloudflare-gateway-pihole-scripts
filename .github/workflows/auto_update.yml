@@ -68,9 +68,9 @@ jobs:
           PING_URL: ${{ secrets.PING_URL }}
 
   keepalive:
-    if: github.event_name == 'schedule'
     runs-on: ubuntu-latest
     permissions:
       actions: write
     steps:
+      - uses: actions/checkout@v4
       - uses: gliskin/gh-workflow-keepalive@v1
