@@ -2,7 +2,7 @@ name: Update Filter Lists
 
 on:
   schedule:
-    - cron: "15 18 * * sat"
+    - cron: "15 20 4,14,24 * *"
   push:
     branches:
       - main
@@ -73,4 +73,4 @@ jobs:
       actions: write
     steps:
       - uses: actions/checkout@v4
-      - uses: gliskin/gh-workflow-keepalive@v1
+      - uses: liskin/gh-workflow-keepalive@v1
