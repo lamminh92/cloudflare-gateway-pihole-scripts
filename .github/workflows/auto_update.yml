@@ -74,3 +74,16 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - uses: liskin/gh-workflow-keepalive@v1
+      
+  cleanup:
+    runs-on: ubuntu-latest
+    permissions:
+      actions: write
+      contents: read
+    steps:
+      - name: Clean old workflow runs
+        uses: diverger/gh-clean-workflow@v1
+        with:
+          runs_older_than: "30" # Delete runs older than 30 days
+          runs_to_keep: "5"     # Keep the latest 5 runs
+          dry_run: "true"      # Set to true to preview deletions without actually deleting 
